@@ -1,0 +1,8 @@
+{
+	"items": [
+	{
+		"name": "Kindle GPhotos",
+		"action": "setsid ./kindle-gphotos.sh"
+	}
+	]
+}
