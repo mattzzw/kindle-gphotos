@@ -84,6 +84,8 @@ while true; do
 	### Disable CPU Powersave
 	echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 
+    echo 0 > $FBROTATE
+
     lipc-set-prop com.lab126.cmd wirelessEnable 1
     ### Wait for wifi interface to come up
     echo `date '+%Y-%m-%d_%H:%M:%S'`: Waiting for wifi interface to come up... >> $LOG
@@ -103,7 +105,7 @@ while true; do
             ### waited long enough
             echo "`date '+%Y-%m-%d_%H:%M:%S'`: No Wifi... ($TRYCNT)" >> $LOG
             NOWIFI=1
-            eips -f -g $PWD/error.png
+            $FBINK -x 10 "No Wifi..."
             break
         fi
 	  sleep 1
@@ -112,14 +114,12 @@ while true; do
 
 	echo `date '+%Y-%m-%d_%H:%M:%S'`: WIFI connected! >> $LOG
 
-    echo 0 > $FBROTATE
-    ./get_gphoto.py && fbink -q -c -f -i photo.jpg -g w=-1,h=-1,dither=PASSTHROUGH
-    fbink -q `gasgauge-info -c`
+    BAT=$(gasgauge-info -c)
 
-	#echo `date -d @${WAKEUP_TIME}` | xargs -0 eips
-	BAT=$(gasgauge-info -s | sed s/%//)
-#	echo $BAT | xargs -0 eips -f 1 1
-	echo `date '+%Y-%m-%d_%H:%M:%S'`: Battery level: $BAT >> $LOG
+    ./get_gphoto.py && fbink -q -c -f -i photo.jpg -g w=-1,h=-1,dither=PASSTHROUGH
+    fbink -q $BAT
+
+    echo `date '+%Y-%m-%d_%H:%M:%S'`: Battery level: $BAT >> $LOG
 
     ### Enable powersave
     echo powersave > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -131,7 +131,6 @@ while true; do
 
     ### set wake up time to one hour
     echo `date '+%Y-%m-%d_%H:%M:%S'`: Sleeping now... >> $LOG
-#	echo "mem" > /sys/power/state
 	rtcwake -d /dev/rtc0 -m mem -s $SLEEP_SECONDS
 	### Go into Suspend to Memory (STR)
 done
