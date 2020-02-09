@@ -1,5 +1,7 @@
 # Kindle Google Photos Picture Frame
-The idea is to turn a Kindle Paperwhite into an eInk digital picture frame displaying photos from a shared Google Photos folder. Every 24h a new photo will be displayed.
+The idea is to turn a Kindle Paperwhite into an eInk digital picture frame displaying photos from a shared Google Photos folder.
+
+Every 24h a new photo will be displayed. In the top left the battery percentage is displayed.
 
 ## What's What
 * `get_gphoto.py`: Downloads a random image from a shared album called `kindle`
@@ -8,7 +10,7 @@ The idea is to turn a Kindle Paperwhite into an eInk digital picture frame displ
 * `sync2kindle.sh`: Simple rsync helper for development
 
 ## Setup
-* Create a shared album called `kindle`. I typically use black and white filtered copies of images. The "Vista" Filter in Google Photos works fine for me for enhanced contrast. Also, I use the "Light" fader to slightly overexpose images. Just using the original color images looked too dull on the eink display.
+* Create a shared album called `kindle` in Google Photos and add a couple of photos. I typically use black and white filtered copies of photos. The "Vista" Filter in Google Photos works fine for me for enhancing contrast. Also, I use the "Light" fader to slightly overexpose the photos. This makes them more suitable for using a 4-bit eInk display. Just using the original color images looked too dull on the eink display.
 
 * You will need an [OAuth2](https://developers.google.com/identity/protocols/OAuth2) Client ID from Google in order to use the Photos API. Obtain OAuth 2.0 client credentials from the [Developers Console](https://console.developers.google.com/). Make sure, you add the scope `../auth/photoslibrary.readonly` to your OAuth consent screen.
 
