@@ -3,6 +3,8 @@ The idea is to turn a Kindle Paperwhite into an eInk digital picture frame displ
 
 Every 24h a new photo will be displayed. In the top left the battery percentage is displayed.
 
+![screenshot](./screenshot.jpg)
+
 ## What's What
 
 * `get_gphoto.py`: Downloads a random image from a shared album called `kindle`
