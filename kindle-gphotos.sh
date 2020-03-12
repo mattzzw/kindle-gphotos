@@ -105,7 +105,7 @@ while true; do
             ### waited long enough
             echo "`date '+%Y-%m-%d_%H:%M:%S'`: No Wifi... ($TRYCNT)" >> $LOG
             NOWIFI=1
-            $FBINK -x 10 "No Wifi..."
+            $FBINK -x 5 "No Wifi..."
             break
         fi
 	  sleep 1
@@ -115,8 +115,9 @@ while true; do
 	echo `date '+%Y-%m-%d_%H:%M:%S'`: WIFI connected! >> $LOG
 
     BAT=$(gasgauge-info -c)
-
-    ./get_gphoto.py && fbink -q -c -f -i photo.jpg -g w=-1,h=-1,dither=PASSTHROUGH
+    $FBINK -x 20 "Getting new image..."
+    ./get_gphoto.py
+    fbink -q -c -f -i photo.jpg -g w=-1,h=-1,dither=PASSTHROUGH
     fbink -q $BAT
 
     echo `date '+%Y-%m-%d_%H:%M:%S'`: Battery level: $BAT >> $LOG
