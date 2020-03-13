@@ -13,9 +13,9 @@ Every 24h a new photo will be displayed. In the top left the battery percentage 
 * `sync2kindle.sh`: Simple rsync helper for development
 
 ## Kindle preparation:
-* jailbreak the kindle (doh!)
-* Install KUAL
-* Install MRInstaller (this should be insalled anyway, additionally this includes fbink)
+* jailbreak the kindle (doh!)  --> [Mobileread Forum Thread](https://www.mobileread.com/forums/showthread.php?t=320564)
+* Install KUAL and MRPI (MRPI includes fbink)
+* Add USBnetworking and python (via MRPI)
 
 ## Setup
 * Google Photos: Create a shared album called `kindle` in Google Photos and add a couple of photos. I typically use black and white filtered copies of photos. The "Vista" Filter in Google Photos works fine for me for enhancing contrast. Also, I use the "Light" fader to slightly overexpose the photos. This makes them more suitable for using a 4-bit eInk display. Just using the original color images looked too dull on the eink display.
