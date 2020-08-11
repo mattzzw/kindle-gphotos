@@ -13,6 +13,7 @@ Every 24h a new photo will be displayed. In the top left the battery percentage 
 * `sync2kindle.sh`: Simple rsync helper for development
 
 ## Kindle preparation:
+* Get a Kindle Paperwhite 2 or 3 (other models may also work with modifications to this code)
 * jailbreak the kindle (doh!)  --> [Mobileread Forum Thread](https://www.mobileread.com/forums/showthread.php?t=320564)
 * Install KUAL and MRPI (MRPI includes fbink)
 * Add USBnetworking and python (via MRPI)
